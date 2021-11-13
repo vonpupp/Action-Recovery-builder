@@ -10,7 +10,7 @@ on:
       LIBRARY_URL:
         description: 'LIBRARY_URL'
         required: true
-        default: 'github.com/PitchBlackRecoveryProject/manifest_pb.git'
+        default: 'https://github.com/PitchBlackRecoveryProject/manifest_pb.git'
       LIBRARY_BRANCH:
         description: 'LIBRARY_BRANCH'
         required: true
@@ -71,7 +71,7 @@ jobs:
         cd workspace
         echo "::set-output name=pwd::$(pwd)"
         git config --global user.name "Vonpupp's Action-Build-Bot"
-        git config --global user.email "Android@teio.tk"
+        git config --global user.email "vonpupp@teio.tk"
         repo init --depth=1 -u ${{ github.event.inputs.LIBRARY_URL }} -b ${{ github.event.inputs.LIBRARY_BRANCH }}
       id: pwd
 
