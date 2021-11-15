@@ -96,6 +96,11 @@ jobs:
         lunch ${{ github.event.inputs.LIBRARY_NAME }}_${{ github.event.inputs.DEVICE_NAME }}-eng
         make clean
         make recoveryimage -j$(nproc --all)
+        ls -la ${{ steps.pwd.outputs.pwd }}
+        find . -type f -name "*.img"
+        find . -type f -name "*.zip"
+        tree .
+        tree workspace
 
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
