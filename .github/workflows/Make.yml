@@ -106,8 +106,24 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/*.zip
-          workspace/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/recovery.img
+          workspace/device/linaro/dragonboard/installer/db845c/dragonboard-845c-bootloader-ufs-aosp/boot-erase.img
+          workspace/device/google/sunfish-kernel/debug_locking/dtbo.img
+          workspace/device/google/sunfish-kernel/debug_api/dtbo.img
+          workspace/device/google/sunfish-kernel/debug_hang/dtbo.img
+          workspace/device/google/sunfish-kernel/debug_memory/dtbo.img
+          workspace/device/google/sunfish-kernel/kasan/dtbo.img
+          workspace/device/google/sunfish-kernel/dtbo.img
+          workspace/device/google/sunfish-kernel/khwasan/dtbo.img
+          workspace/device/google/cuttlefish/dtb.img
+          workspace/device/ulefone/Armor_8_Pro/prebuilt/dtb.img
+          workspace/bootable/recovery/tests/testdata/recovery.img
+          workspace/bootable/recovery/tests/testdata/boot.img
+          workspace/sdk/emulator/snapshot/snapshots.img
+          workspace/external/avb/test/data/aftltool/aftl_output_vbmeta_with_2_icp_different_logs.img
+          workspace/external/avb/test/data/aftltool/aftl_output_vbmeta_with_1_icp.img
+          workspace/external/avb/test/data/aftltool/aftl_output_vbmeta_with_2_icp_same_log.img
+          workspace/external/avb/test/data/aftltool/aftl_input_vbmeta.img
+          workspace/external/avb/test/data/aftl_verify_full.img
         name: ${{ github.event.inputs.DEVICE_NAME }}-${{ github.run_id }}
         tag_name: ${{ github.run_id }}
         body: Recovery for ${{ github.event.inputs.DEVICE_NAME }}
